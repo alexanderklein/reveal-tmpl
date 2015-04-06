@@ -1,0 +1,300 @@
+= My Reveal JS Set Up
+Alexander Klein
+v0.9, 2015-04-04
+:toc: left
+:icons: font
+:source-highlighter: highlightjs
+:numbered:
+:doctype: book
+:toclevels: 2
+
+= Basic set up
+
+== High level file layout
+
+----
+|-- custom //<1>
+|-- master -> /Users/aklein/dev/reveal/reveal.js-master //<2>
+|-- README.adoc //<3>
+|-- README.html //<4>
+|-- index.html //<5>
+|-- sample.html //<6>
+----
+
+<1> Customised files.
+<2> Soft link to the latest **unmodified** https://github.com/hakimel/reveal.js/archive/master.zip[ revealjs release (unzipped)]
+<3> Source of this document.
+<4> This document.
+<5> The actual presentation.
+<6> The original showcase with some add ons
+(http://fortawesome.github.io/Font-Awesome/[Font Awesome], http://ellekasai.github.io/twemoji-awesome/[Twemoji Awesome], http://foundation.zurb.com/docs/components/grid.html[Foundation Grids]).
+
+[NOTE]
+====
+Pulling in `reveajs` over a soft link allows to easily replace the `revealjs` package when an
+updated version is available.
+====
+
+[WARNING]
+====
+The above can only work when no files in the original `revealjs` package
+required modification.
+====
+
+= Customization
+
+== File layout
+
+----
+custom/
+|-- css //<1>
+|-- js //<2>
+|-- font //<3>
+----
+
+<1> Custom CSS files.
+<2> Custom JS files.
+<3> Fonts to be used in the presentation. 
+
+[WARNING]
+====
+Font Awesome and Twemoji fonts are located within the *CSS* directory. See
+<<Font Awesome>> for details.
+====
+
+== CSS
+
+----
+custom/css/
+├── bootstrap // <1>
+├── font-awesome // <2>
+├── foundation // <3>
+├── highlight-js // <4>
+├── main.css // <5>
+├── theme // <6>
+├── transition-speeds.css // <7>
+└── twemoji-awesome // <8>
+----
+
+<1> <<Bootstrap, Includes the Bootstrap Grid>>
+<2> <<Font Awesome, Contains all files required to include Font Awesome>>
+<3> <<Foundation, Includes Grid and Block Grid from Foundation>>
+<4> <<Highlight JS, Four different color schemes for Highlight JS>>
+<5> <<Main file, Main CSS file for specific style rules>>
+<6> <<Themes, Original `revealjs` and own themes>>
+<7> <<Transition Speeds, CSS file to determine custom transition speeds>>
+<8> <<Twemoji Awesome, Twemoji Awesome>>
+
+=== Bootstrap
+
+----
+custom/css/bootstrap/
+└── bootstrap.min.css //<1>
+----
+
+<1> A customized version of the http://getbootstrap.com[Bootstrap]
+Stylesheet.
+It supports only the http://getbootstrap.com/css/#grid[Grid]
+
+=== Font Awesome
+
+----
+custom/css/font-awesome/
+|-- FontAwesome.otf //<1>
+|-- fontawesome-webfont.eot //<1>
+|-- fontawesome-webfont.svg //<1>
+|-- fontawesome-webfont.ttf //<1>
+|-- fontawesome-webfont.woff //<1>
+|-- font-awesome.min.css //<2>
+|-- fix.css //<3>
+----
+
+<1> The actual fonts in various formats.
+<2> Font Awesome's proprietary CSS file.
+<3> Overrides `revealjs` styles for `i`
+
+[source, css]
+.custom/css/font-awesome/fix.css
+----
+/*Font Awesome*/
+/*Override font location from original font-awesome.css*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('font-awesome/fontawesome-webfont.eot?v=4.2.0');
+  src: url('font-awesome/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
+  url('font-awesome/fontawesome-webfont.woff?v=4.2.0') format('woff'),
+  url('../font-awesome/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+  url('font-awesome/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*Override font attributes from reveal-js.css*/
+.reveal i.fa {
+  font-family:FontAwesome;
+  font-style: normal;
+  font-size:inherit; 
+} 
+.reveal i.fa-lg {
+  font-size: 1.3333333em;
+}
+.reveal i.fa-2x {
+  font-size:2em;
+}
+.reveal i.fa-3x {
+  font-size:3em;
+}
+.reveal i.fa-4x {
+  font-size:4em;
+}
+.reveal i.fa-5x {
+  font-size:5em;
+}
+----
+
+=== Foundation
+
+----
+custom/css/foundation/
+|-- foundation.min.css
+----
+
+A customized version of the http://foundation.zurb.com[Foundation]
+Stylesheet.
+It supports
+
+* http://foundation.zurb.com/docs/components/grid.html[Grid]
+* http://foundation.zurb.com/docs/components/block_grid.html[Block Grid] 
+
+=== Highlight JS
+
+----
+custom/css/highlight-js/
+|-- github.css 
+|-- idea.css
+|-- solarized_dark.css
+|-- solarized_light.css
+----
+
+Contains four selected color schemes from https://highlightjs.org[Highlight JS].
+More can be added.
+
+=== Themes
+
+----
+custom/css/theme/
+|-- beige.css
+|-- black.css
+|-- blood.css
+|-- league.css
+|-- moon.css
+|-- night.css
+|-- serif.css
+|-- simple.css
+|-- sky.css
+|-- solarized.css
+|-- white.css
+----
+
+The themes provided by `revealjs` can be used as templates for own styles.
+Copied from `master/css/theme/`.
+
+=== Twemoji Awesome
+
+----
+custom/css/twemoji-awesome/
+|-- twemoji-awesome.css
+----
+
+The Stylesheet from http://ellekasai.github.io/twemoji-awesome[Twemoji Awesome].
+
+=== Main file
+
+The idea is that this file contains all css rules for specific elements on
+specific slides. More general styling rules should be defined in a customized
+<<Themes, theme file>>
+
+=== Transition Speeds
+
+[source, css]
+----
+.reveal[data-transition-speed="fast"] .slides section {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal[data-transition-speed="slow"] .slides section {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+
+/* Slide-specific transition speed overrides */
+.reveal .slides section[data-transition-speed="fast"] {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal .slides section[data-transition-speed="slow"] {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"]>.backgrounds .slide-background {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal[data-transition-speed="slow"]>.backgrounds .slide-background {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+/* Global transition speed settings */
+.reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+----
+
+The transition speeds between different slides can be changed here. Fast
+transitions are set to *0ms* to simulate no transitions.
+
+== JavaScript
+----
+custom/js/
+|-- jquery.js -> /Users/aklein/dev/shared/jquery.js //<1>
+|-- main.js //<2>
+----
+
+<1> Soft link to the (ideally) latest http://jquery.com[JQuery] version.
+<2> All own JavaScript should be added to the <<Main JS file>>
+
+=== Main JS file
+
+[source, javascript]
+----
+$( document ).ready( function() {
+  $( 'section > section' ).attr( 'data-transition-speed', 'slow'); //<1>
+  // <2>
+} );
+----
+
+<1> Changes the transition speed from fast (0ms) to slow (1200ms) for nested section
+elements. This makes horizontal navigation over slides animated.
+<2> Any additional JavaScript functionality can be added here.

@@ -1,0 +1,52 @@
+.reveal[data-transition-speed="fast"] .slides section {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal[data-transition-speed="slow"] .slides section {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+
+/* Slide-specific transition speed overrides */
+.reveal .slides section[data-transition-speed="fast"] {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal .slides section[data-transition-speed="slow"] {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"]>.backgrounds .slide-background {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal[data-transition-speed="slow"]>.backgrounds .slide-background {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
+/* Global transition speed settings */
+.reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  -ms-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+.reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
+  -webkit-transition-duration: 1200ms;
+  -moz-transition-duration: 1200ms;
+  -ms-transition-duration: 1200ms;
+  transition-duration: 1200ms;
+}
