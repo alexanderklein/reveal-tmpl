@@ -7,6 +7,7 @@ v0.9, 2015-04-04
 :numbered:
 :doctype: book
 :toclevels: 2
+:linkattrs:
 
 = Basic set up
 
@@ -27,7 +28,7 @@ v0.9, 2015-04-04
 <4> This document.
 <5> The actual presentation.
 <6> The original showcase with some add ons
-(http://fortawesome.github.io/Font-Awesome/[Font Awesome], http://ellekasai.github.io/twemoji-awesome/[Twemoji Awesome], http://foundation.zurb.com/docs/components/grid.html[Foundation Grids]).
+(http://fortawesome.github.io/Font-Awesome/[Font Awesome, window="_blank"], http://ellekasai.github.io/twemoji-awesome/[Twemoji Awesome, window="_blank"], http://foundation.zurb.com/docs/components/grid.html[Foundation Grids, window="_blank"]).
 
 [NOTE]
 ====
@@ -92,9 +93,9 @@ custom/css/bootstrap/
 └── bootstrap.min.css //<1>
 ----
 
-<1> A customized version of the http://getbootstrap.com[Bootstrap]
+<1> A customized version of the http://getbootstrap.com[Bootstrap, window="_blank"]
 Stylesheet.
-It supports only the http://getbootstrap.com/css/#grid[Grid]
+It supports only the http://getbootstrap.com/css/#grid[Grid, window="_blank"]
 
 === Font Awesome
 
@@ -159,12 +160,12 @@ custom/css/foundation/
 |-- foundation.min.css
 ----
 
-A customized version of the http://foundation.zurb.com[Foundation]
+A customized version of the http://foundation.zurb.com[Foundation, window="_blank"]
 Stylesheet.
 It supports
 
-* http://foundation.zurb.com/docs/components/grid.html[Grid]
-* http://foundation.zurb.com/docs/components/block_grid.html[Block Grid] 
+* http://foundation.zurb.com/docs/components/grid.html[Grid, window="_blank"]
+* http://foundation.zurb.com/docs/components/block_grid.html[Block Grid, window="_blank"] 
 
 === Highlight JS
 
@@ -176,7 +177,7 @@ custom/css/highlight-js/
 |-- solarized_light.css
 ----
 
-Contains four selected color schemes from https://highlightjs.org[Highlight JS].
+Contains four selected color schemes from https://highlightjs.org[Highlight JS, window="_blank"].
 More can be added.
 
 === Themes
@@ -206,7 +207,7 @@ custom/css/twemoji-awesome/
 |-- twemoji-awesome.css
 ----
 
-The Stylesheet from http://ellekasai.github.io/twemoji-awesome[Twemoji Awesome].
+The Stylesheet from http://ellekasai.github.io/twemoji-awesome[Twemoji Awesome, window="_blank"].
 
 === Main file
 
@@ -282,7 +283,7 @@ custom/js/
 |-- main.js //<2>
 ----
 
-<1> Soft link to the (ideally) latest http://jquery.com[JQuery] version.
+<1> Soft link to the (ideally) latest http://jquery.com[JQuery, window="_blank"] version.
 <2> All own JavaScript should be added to the <<Main JS file>>
 
 === Main JS file
