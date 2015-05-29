@@ -171,7 +171,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
           </p>
         </section>
-
         <section>
           <section data-background="#dddddd">
             <h2>Slide Backgrounds</h2>
@@ -190,12 +189,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <h2>Tiled Backgrounds</h2>
             <pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
           </section>
-          <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-            <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-              <h2>Video Backgrounds</h2>
-              <pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-            </div>
-          </section>
         </section>
 
         <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
@@ -213,7 +206,6 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </p>
           <pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
         </section>
-
         <section>
           <h2>Pretty Code</h2>
           <pre><code data-trim contenteditable>
@@ -414,13 +406,13 @@ Reveal.initialize({
   transitionSpeed: 'fast', 
   transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-    // Optional reveal.js plugins
+  // Optional reveal.js plugins
   dependencies: [
   { src: 'master/lib/js/classList.js', condition: function() { return !document.body.classList; } },
   { src: 'master/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
   { src: 'custom/js/jquery.js' },
-    { src: 'custom/js/main.js' },
-    { src: 'master/plugin/zoom-js/zoom.js', async: true }
+  { src: 'custom/js/main.js' },
+  { src: 'master/plugin/zoom-js/zoom.js', async: true }
   ]
 });
 
